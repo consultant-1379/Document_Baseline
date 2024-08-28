@@ -1,0 +1,5 @@
+TIBCO Spotfire 7.11
+TIBCO Spotfire 10.10
+TIBCO Spotfire 11.4
+TIBCO Spotfire 12.0
+Spotfire 14.0

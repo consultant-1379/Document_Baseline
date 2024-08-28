@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+<style type="text/css">
+form {
+ margin: 0;
+ padding: 1em 0;
+ border: 3px ridge lightgrey;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+	font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button .icon_upload {
+    background: url({{url_for('static', filename='doc_up.png')}}) no-repeat ;
+	background-size: 100%;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px
+}  
+.button .icon_view {
+    background: url({{url_for('static', filename='view_doc.png')}}) no-repeat ;
+	background-size: 100%;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px
+}
+.button .span {
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+.button:hover {
+  background-color: grey;
+} 
+</style>
+
+<table border="0" style="background-color: #003258;" width="100%" height="100%">
+	<tbody><tr><td><img border="0" style="background none;" src="{{url_for('static', filename='ericsson.gif')}}"></td>
+	<td align="right"><strong><font color="white" face="Arial,sans-serif">Document Baseline Page</font></strong></td></tr>
+	</tbody>
+</table>
+</br></br></br></br>
+<form action="" method="post" align="middle">
+<a href="{{ url_for('upload') }}" class="button"><span class="icon_upload"></span>Upload Documents</a>
+<a href="{{ url_for('document_list_main_cpi') }}" class="button"><span class="icon_view"></span>CPI Documents</a>
+<a href="{{ url_for('document_list_main_calstore') }}" class="button"><span class="icon_view"></span>CalStore Documents</a>
+<a href="{{ url_for('document_list_main_ncpi') }}" class="button"><span class="icon_view"></span>Network Analytics Feature (ENIQ-S) Library</a>
+<a href="{{ url_for('document_list_main_other_docs') }}" class="button"><span class="icon_view"></span>Other Documents</a>
+</form>
+</body>
+</html>

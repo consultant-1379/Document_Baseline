@@ -1,0 +1,2 @@
+ENIQ Statistics Rack Upgrade Procedure
+ENIQ Statistics X86 Blade Upgrade Procedure

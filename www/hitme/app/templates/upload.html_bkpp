@@ -1,0 +1,291 @@
+<html>
+  <head>
+    <title>Upload Documents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+<style type="text/css">
+form {
+ margin: 0;
+ padding: 1em 0;
+ border: 3px ridge lightgrey;
+}
+
+.uploadForm {
+ padding: 50px 50px 75px 500px;
+}
+
+</style>
+
+<style>
+.btn {
+  background-color: #032457;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: grey;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #032457;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script>
+function convert(doc_string) {
+        doc_string = doc_string.replace(/\[/g,"");
+        doc_string = doc_string.replace(/\]/g,"");
+        doc_string = doc_string.replace(/"/g,"");
+        doc_list = doc_string.split(',');
+        return doc_list;
+}
+
+$(document).ready(function () {
+        $("#dccat").change(function () {
+                                        var val = $(this).val();
+                                        var cpi_string = {{ doc_list_cpi|tojson }};
+                                        cpi_string = cpi_string.replace(/\[/g,"");
+                                        cpi_string = cpi_string.replace(/\]/g,"");
+                                        cpi_string = cpi_string.replace(/"/g,"");
+                                        cpi_list = cpi_string.split(',');
+                                        var cals_string = {{ doc_list_calstore|tojson }}
+                                        cals_string = cals_string.replace(/\[/g,"");
+                                        cals_string = cals_string.replace(/\]/g,"");
+                                        cals_string = cals_string.replace(/"/g,"");
+                                        cals_list = cals_string.split(',');
+                                        if (val == "CPI") {
+                                                var options = '';
+                                                for (var i = 0; i < cpi_list.length; i++) {
+                                                                        options += '<option value="' + cpi_list[i] + '">' + cpi_list[i] + '</option>';
+                                                }
+                                                $('#dctype').html(options);
+                                                $("#dctype").change(function () {
+                                                                                var val = $(this).val();
+										if (val == " Safety_and_Environment") {
+                                                                                		var se_string = {{ cpi_se_doc|tojson }};
+                                                                                		se_list = convert(se_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < se_list.length; i++) {
+                                                                                                options += '<option value="' + se_list[i] + '">' + se_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Library_Overview") {
+		                                                                                var lib_string = {{ cpi_lo_doc|tojson }};
+                                                                 			        lib_list = convert(lib_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < lib_list.length; i++) {
+                                                                                                options += '<option value="' + lib_list[i] + '">' + lib_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Product_Overview") {
+                                                                                                var pro_string = {{ cpi_po_doc|tojson }};
+                                                                                                pro_list = convert(pro_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < pro_list.length; i++) {
+                                                                                                options += '<option value="' + pro_list[i] + '">' + pro_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM_User_Guides") {
+                                                                                                var user_string = {{ cpi_ug_doc|tojson }};
+                                                                                                user_list = convert(user_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < user_list.length; i++) {
+                                                                                                options += '<option value="' + user_list[i] + '">' + user_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Installation") {
+                                                                                                var installation_string = {{ cpi_installation_doc|tojson }};
+                                                                                                install_list = convert(installation_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < install_list.length; i++) {
+                                                                                                options += '<option value="' + install_list[i] + '">' + install_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM_System_Adminitrator_Guides") {
+                                                                                                var sag_string = {{ cpi_sag_doc|tojson }};
+                                                                                                sag_list = convert(sag_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < sag_list.length; i++) {
+                                                                                                options += '<option value="' + sag_list[i] + '">' + sag_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM_Technology_Package_Descriptions_and_Universe_References") {
+                                                                                                var tu_string = {{ cpi_tu_doc|tojson }};
+                                                                                                tu_list = convert(tu_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < tu_list.length; i++) {
+                                                                                                options += '<option value="' + tu_list[i] + '">' + tu_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM_Business_Intelligence_Reports_User_Guides") {
+                                                                                                var bi_string = {{ cpi_bi_doc|tojson }};
+                                                                                                bi_list = convert(bi_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < bi_list.length; i++) {
+                                                                                                options += '<option value="' + bi_list[i] + '">' + bi_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Interface") {
+                                                                                                var intf_string = {{ cpi_intf_doc|tojson }};
+                                                                                                intf_list = convert(intf_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < intf_list.length; i++) {
+                                                                                                options += '<option value="' + intf_list[i] + '">' + intf_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " 3PP_Business_Objects") {
+                                                                                                var bo_string = {{ cpi_3pp_bo_doc|tojson }};
+                                                                                                bo_list = convert(bo_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < bo_list.length; i++) {
+                                                                                                options += '<option value="' + bo_list[i] + '">' + bo_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " 3PP_Sun") {
+                                                                                                var sun_string = {{ cpi_sun_doc|tojson }};
+                                                                                                sun_list = convert(sun_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < sun_list.length; i++) {
+                                                                                                options += '<option value="' + sun_list[i] + '">' + sun_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+
+
+
+                                        });
+                                        }
+                                        if (val == "CALSTORE") {
+                                                var options = '';
+                                                for (var i = 0; i < cals_list.length; i++) {
+                                                                        options += '<option value="' + cals_list[i] + '">' + cals_list[i] + '</option>';
+                                                }
+                                                $('#dctype').html(options);
+                                        }
+        });
+});
+</script>
+
+</head>
+<body>
+
+<table border="0" style="background-color: #003258;" width="100%">
+        <tbody><tr><td><img border="0" style="background none;" src="{{url_for('static', filename='ericsson.gif')}}"></td>
+        <td align="right"><strong><font color="white" face="Arial,sans-serif">Document Baseline Page</font></strong></td></tr>
+        </tbody>
+</table>
+
+<ul>
+  <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+  <li><a href="{{ url_for('document_list_main_cpi') }}">CPI Documents</a></li>
+  <li><a href="{{ url_for('document_list_main_calstore') }}">CalStore Documents</a></li>
+  <li style="float:right"><a href="https://jira-oss.seli.wh.rnd.internal.ericsson.com">Report</a></li>
+</ul>
+
+    <div class="container">
+      <h1 align="center">Upload Documents</h1>
+      <br>
+      <form class="uploadForm" margin="40px" action="" method="post" align="left" onsubmit="window.location.reload()">
+          Shipment
+        <select required name="shipment" value="{{request.form.shipment}}">
+                        <option value="none" selected hidden> Select Shipment </option>
+                {% for ship in ship_list %}
+                        <option value={{ship}}>{{ ship }}</option>
+                {% endfor %}
+                </select>
+               </br></br>
+
+                Document Category
+        <select required id="dccat" name="category" value="{{request.form.category}}">
+                        <option value="none" selected hidden > Select Document Category </option>
+                        <option value="CPI">CPI</option>
+                        <option value="CALSTORE">CALSTORE</option>
+                </select>
+                </br></br>
+
+          Document Type
+        <select required id="dctype" name="doctype" value="{{request.form.doctype}}">
+                        <option value="none" selected hidden> Select Document Type </option>
+                </select>
+                </br></br>
+
+        Document Title
+        <select required id="dname" name="docname" value="{{request.form.docname}}"><br>
+                        <option value="none" selected hidden> Select Document Title </option>
+        </select>
+                </br></br>
+
+          Document Number
+        <input type="text" name="docnum" value="{{request.form.docnum}}"><br>
+                </br></br>
+
+          Document Link
+        <input type="url" name="link" value="{{request.form.link}}"><br>
+                </br></br>
+          Document Revision
+        <input type="text" name="revision" value="{{request.form.revision}}"><br>
+                </br></br>
+                  <!-- Document Owner -->
+        <!-- <input type="text" name="owner" value="{{request.form.owner}}"><br> -->
+                <!-- </br></br> -->
+          Document Owner
+        <input type="text" name="upby" value="{{request.form.upby}}"><br>
+                </br></br>
+          Comments
+        <input type="text" name="comments" value="{{request.form.comments}}"><br>
+                </br></br>
+
+        <input class="btn-default" type="submit" align="center" style="width:90px;height:30px" value="Upload">
+        {% if message %}
+        <script>
+        alert("{{ message }}");
+    </script>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+</html>
+

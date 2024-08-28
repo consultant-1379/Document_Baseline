@@ -1,0 +1,653 @@
+<html>
+  <head>
+    <title>Upload Documents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+<style type="text/css">
+form {
+ margin: 0;
+ padding: 1em 0;
+ border: 3px ridge lightgrey;
+}
+
+.uploadForm {
+ padding: 50px 50px 75px 500px;
+}
+
+</style>
+
+<style>
+.btn {
+  background-color: #032457;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: grey;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #032457;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script>
+function convert(doc_string) {
+        doc_string = doc_string.replace(/\[/g,"");
+        doc_string = doc_string.replace(/\]/g,"");
+        doc_string = doc_string.replace(/"/g,"");
+        doc_list = doc_string.split(',');
+        return doc_list;
+}
+
+$(document).ready(function () {
+        $("#dccat").change(function () {
+                                        var val = $(this).val();
+                                        var cpi_string = {{ doc_list_cpi|tojson }};
+                                        cpi_string = cpi_string.replace(/\[/g,"");
+                                        cpi_string = cpi_string.replace(/\]/g,"");
+                                        cpi_string = cpi_string.replace(/"/g,"");
+                                        cpi_list = cpi_string.split(',');
+
+                                        var cals_string = {{ doc_list_calstore|tojson }}
+                                        cals_string = cals_string.replace(/\[/g,"");
+                                        cals_string = cals_string.replace(/\]/g,"");
+                                        cals_string = cals_string.replace(/"/g,"");
+                                        cals_list = cals_string.split(',');
+
+                                        var ncpi_string = {{ doc_list_ncpi|tojson }};
+                                        ncpi_string = ncpi_string.replace(/\[/g,"");
+                                        ncpi_string = ncpi_string.replace(/\]/g,"");
+                                        ncpi_string = ncpi_string.replace(/"/g,"");
+                                        ncpi_list = ncpi_string.split(',');
+										
+					var other_docs = {{ doc_list_other_docs|tojson }};
+                                        other_docs = other_docs.replace(/\[/g,"");
+                                        other_docs = other_docs.replace(/\]/g,"");
+                                        other_docs = other_docs.replace(/"/g,"");
+                                        other_docs_list = other_docs.split(',');
+
+                                        if (val == "CPI") {
+                                                var options = '';
+                                                for (var i = 0; i < cpi_list.length; i++) {
+                                                                        options += '<option value="' + cpi_list[i] + '">' + cpi_list[i] + '</option>';
+                                                }
+                                                $('#dctype').html(options);
+                                                $("#dctype").change(function () {
+                                                                                var val = $(this).val();
+                                                                                if (val == " Safety and Environment") {
+                                                                                                var se_string = {{ cpi_se_doc|tojson }};
+                                                                                                se_list = convert(se_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < se_list.length; i++) {
+                                                                                                options += '<option value="' + se_list[i] + '">' + se_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Library Overview") {
+                                                                                                var lib_string = {{ cpi_lo_doc|tojson }};
+                                                                                                lib_list = convert(lib_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < lib_list.length; i++) {
+                                                                                                options += '<option value="' + lib_list[i] + '">' + lib_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Product Overview") {
+                                                                                                var pro_string = {{ cpi_po_doc|tojson }};
+                                                                                                pro_list = convert(pro_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < pro_list.length; i++) {
+                                                                                                options += '<option value="' + pro_list[i] + '">' + pro_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM User Guides") {
+                                                                                                var user_string = {{ cpi_ug_doc|tojson }};
+                                                                                                user_list = convert(user_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < user_list.length; i++) {
+                                                                                                options += '<option value="' + user_list[i] + '">' + user_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Installation") {
+                                                                                                var installation_string = {{ cpi_installation_doc|tojson }};
+                                                                                                install_list = convert(installation_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < install_list.length; i++) {
+                                                                                                options += '<option value="' + install_list[i] + '">' + install_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM System Administrator Guides") {
+                                                                                                var sag_string = {{ cpi_sag_doc|tojson }};
+                                                                                                sag_list = convert(sag_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < sag_list.length; i++) {
+                                                                                                options += '<option value="' + sag_list[i] + '">' + sag_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM Technology Package Descriptions and Universe References") {
+                                                                                                var tu_string = {{ cpi_tu_doc|tojson }};
+                                                                                                tu_list = convert(tu_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < tu_list.length; i++) {
+                                                                                                options += '<option value="' + tu_list[i] + '">' + tu_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM Business Intelligence Reports User Guides") {
+                                                                                                var bi_string = {{ cpi_bi_doc|tojson }};
+                                                                                                bi_list = convert(bi_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < bi_list.length; i++) {
+                                                                                                options += '<option value="' + bi_list[i] + '">' + bi_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Interface") {
+                                                                                                var intf_string = {{ cpi_intf_doc|tojson }};
+                                                                                                intf_list = convert(intf_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < intf_list.length; i++) {
+                                                                                                options += '<option value="' + intf_list[i] + '">' + intf_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " 3PP Business Objects") {
+                                                                                                var bo_string = {{ cpi_3pp_bo_doc|tojson }};
+                                                                                                bo_list = convert(bo_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < bo_list.length; i++) {
+                                                                                                options += '<option value="' + bo_list[i] + '">' + bo_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Third Party Products") {
+                                                                                                var rhel_string = {{ cpi_rhel_doc|tojson }};
+                                                                                                rhel_list = convert(rhel_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < rhel_list.length; i++) {
+                                                                                                options += '<option value="' + rhel_list[i] + '">' + rhel_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                                                                                                else if (val == " Additional Documentation") {
+                                                                                                var cpi_ad_string = {{ cpi_ad_doc|tojson }};
+                                                                                                cpi_ad_list = convert(cpi_ad_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < cpi_ad_list.length; i++) {
+                                                                                                options += '<option value="' + cpi_ad_list[i] + '">' + cpi_ad_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+                                                                                                });
+                                        }
+                                        if (val == "CALSTORE") {
+                                                var options = '';
+                                                for (var i = 0; i < cals_list.length; i++) {
+                                                                        options += '<option value="' + cals_list[i] + '">' + cals_list[i] + '</option>';
+                                                }
+                                                $('#dctype').html(options);
+                                                $("#dctype").change(function () {
+                                                                                var val = $(this).val();
+                                                                                if (val == " Safety and Environment") {
+                                                                                                var se_string = {{ cpi_se_doc|tojson }};
+                                                                                                se_list = convert(se_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < se_list.length; i++) {
+                                                                                                options += '<option value="' + se_list[i] + '">' + se_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Library Overview") {
+                                                                                                var lib_string = {{ cpi_lo_doc|tojson }};
+                                                                                                lib_list = convert(lib_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < lib_list.length; i++) {
+                                                                                                options += '<option value="' + lib_list[i] + '">' + lib_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Dimensioning") {
+                                                                                                var dimen_string = {{ cal_dimen_doc|tojson }};
+                                                                                                dimen_list = convert(dimen_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < dimen_list.length; i++) {
+                                                                                                options += '<option value="' + dimen_list[i] + '">' + dimen_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Initial Installation") {
+                                                                                                var ii_string = {{ cal_ii_doc|tojson }};
+                                                                                                ii_list = convert(ii_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ii_list.length; i++) {
+                                                                                                options += '<option value="' + ii_list[i] + '">' + ii_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Infrastructure MWS Support") {
+                                                                                                var mws_string = {{ cal_infra_mws_doc|tojson }};
+                                                                                                mws_list = convert(mws_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < mws_list.length; i++) {
+                                                                                                options += '<option value="' + mws_list[i] + '">' + mws_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Infrastructure NAS") {
+                                                                                                var nas_string = {{ cal_infra_nas_doc|tojson }};
+                                                                                                nas_list = convert(nas_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < nas_list.length; i++) {
+                                                                                                options += '<option value="' + nas_list[i] + '">' + nas_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Infrastructure OSS MONITORING TOOL (OSS-MT)") {
+                                                                                                var oss_string = {{ cal_oss_monitr_doc|tojson }};
+                                                                                                oss_list = convert(oss_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < oss_list.length; i++) {
+                                                                                                options += '<option value="' + oss_list[i] + '">' + oss_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Upgrade") {
+                                                                                                var ug_string = {{ cal_ug_doc|tojson }};
+                                                                                                ug_list = convert(ug_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ug_list.length; i++) {
+                                                                                                options += '<option value="' + ug_list[i] + '">' + ug_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Feature Handling") {
+                                                                                                var fh_string = {{ cal_fh_doc|tojson }};
+                                                                                                fh_list = convert(fh_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < fh_list.length; i++) {
+                                                                                                options += '<option value="' + fh_list[i] + '">' + fh_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Migration") {
+                                                                                                var mig_string = {{ cal_mig_doc|tojson }};
+                                                                                                mig_list = convert(mig_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < mig_list.length; i++) {
+                                                                                                options += '<option value="' + mig_list[i] + '">' + mig_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Expansion") {
+                                                                                                var exp_string = {{ cal_exp_doc|tojson }};
+                                                                                                exp_list = convert(exp_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < exp_list.length; i++) {
+                                                                                                options += '<option value="' + exp_list[i] + '">' + exp_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Integration") {
+                                                                                                var int_string = {{ cal_int_doc|tojson }};
+                                                                                                int_list = convert(int_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < int_list.length; i++) {
+                                                                                                options += '<option value="' + int_list[i] + '">' + int_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Reporting Layer") {
+                                                                                                var rl_string = {{ cal_rl_doc|tojson }};
+                                                                                                rl_list = convert(rl_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < rl_list.length; i++) {
+                                                                                                options += '<option value="' + rl_list[i] + '">' + rl_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Node Hardening") {
+                                                                                                var nh_string = {{ cal_nh_doc|tojson }};
+                                                                                                nh_list = convert(nh_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < nh_list.length; i++) {
+                                                                                                options += '<option value="' + nh_list[i] + '">' + nh_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Veritas Access") {
+                                                                                                var va_string = {{ cal_va_doc|tojson }};
+                                                                                                va_list = convert(va_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < va_list.length; i++) {
+                                                                                                options += '<option value="' + va_list[i] + '">' + va_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " NetAn Feature Library") {
+                                                                                                var net_string = {{ cal_net_doc|tojson }};
+                                                                                                net_list = convert(net_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < net_list.length; i++) {
+                                                                                                options += '<option value="' + net_list[i] + '">' + net_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+                                                                                else if (val == " Additional Documentation") {
+                                                                                                var ad_string = {{ cal_ad_doc|tojson }};
+                                                                                                ad_list = convert(ad_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ad_list.length; i++) {
+                                                                                                options += '<option value="' + ad_list[i] + '">' + ad_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                });
+                                        }
+                                        if (val == "NetAN_Features_Library") {
+                                                var options = '';
+                                                for (var i = 0; i < ncpi_list.length; i++) {
+                                                                        options += '<option value="' + ncpi_list[i] + '">' + ncpi_list[i] + '</option>';
+                                                }
+                                                $('#dctype').html(options);
+                                                $("#dctype").change(function () {
+                                                                                var val = $(this).val();
+                                                                                if (val == " 3PP for Network Analytics Server") {
+                                                                                                var ncpi_3pp_string = {{ ncpi_3pp|tojson }};
+                                                                                                n3pp_list = convert(ncpi_3pp_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < n3pp_list.length; i++) {
+                                                                                                options += '<option value="' + n3pp_list[i] + '">' + n3pp_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+                                                                                else if (val == " OM Development Guide") {
+                                                                                                var ncpi_dev_guide_string = {{ ncpi_dev_guide|tojson }};
+                                                                                                ncpi_dev_guide_list = convert(ncpi_dev_guide_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_dev_guide_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_dev_guide_list[i] + '">' + ncpi_dev_guide_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+                                                                                else if (val == " OM UserGuides: Ericsson GSM Optimization Report") {
+                                                                                                var ncpi_gsm_string = {{ ncpi_gsm|tojson }};
+                                                                                                ncpi_gsm_list = convert(ncpi_gsm_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_gsm_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_gsm_list[i] + '">' + ncpi_gsm_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+                                                                                else if (val == " OM UserGuides: Ericsson PM Alarming") {
+                                                                                                var ncpi_pm_alarm_string = {{ ncpi_pm_alarm|tojson }};
+                                                                                                ncpi_pm_alarm_list = convert(ncpi_pm_alarm_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_pm_alarm_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_pm_alarm_list[i] + '">' + ncpi_pm_alarm_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: Ericsson PM Explorer") {
+                                                                                                var ncpi_pm_exp_string = {{ ncpi_pm_exp|tojson }};
+                                                                                                ncpi_pm_exp_list = convert(ncpi_pm_exp_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_pm_exp_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_pm_exp_list[i] + '">' + ncpi_pm_exp_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: Ericsson NR KPI Dashboard") {
+                                                                                                var ncpi_nr_kpi_string = {{ ncpi_nr_kpi|tojson }};
+                                                                                                ncpi_nr_kpi_list = convert(ncpi_nr_kpi_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_nr_kpi_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_nr_kpi_list[i] + '">' + ncpi_nr_kpi_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                                                         else if (val == " OM UserGuides: App Coverage Map Feature") {
+                                                                                                var ncpi_app_coverage_string = {{ ncpi_app_coverage|tojson }};
+                                                                                                ncpi_app_coverage_list = convert(ncpi_app_coverage_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_app_coverage_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_app_coverage_list[i] + '">' + ncpi_app_coverage_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: Energy Report Feature") {
+                                                                                                var ncpi_energy_string = {{ ncpi_energy|tojson }};
+                                                                                                ncpi_energy_list = convert(ncpi_energy_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_energy_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_energy_list[i] + '">' + ncpi_energy_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: IMS Capacity Feature") {
+                                                                                                var ncpi_ims_string = {{ ncpi_ims|tojson }};
+                                                                                                ncpi_ims_list = convert(ncpi_ims_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_ims_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_ims_list[i] + '">' + ncpi_ims_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: RAN Performance Overview Feature") {
+                                                                                                var ncpi_ran_string = {{ ncpi_ran|tojson }};
+                                                                                                ncpi_ran_string_list = convert(ncpi_ran_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_ran_string_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_ran_string_list[i] + '">' + ncpi_ran_string_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: RAN Uplink Interference Feature") {
+                                                                                                var ncpi_ran_uplink_string = {{ ncpi_ran_uplink|tojson }};
+                                                                                                ncpi_ran_uplink_list = convert(ncpi_ran_uplink_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_ran_uplink_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_ran_uplink_list[i] + '">' + ncpi_ran_uplink_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: VoLTE Feature") {
+                                                                                                var ncpi_volte_string = {{ ncpi_volte|tojson }};
+                                                                                                ncpi_volte_list = convert(ncpi_volte_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_volte_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_volte_list[i] + '">' + ncpi_volte_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM UserGuides: VoWi-Fi Features") {
+                                                                                                var ncpi_vowifi_string = {{ ncpi_vowifi|tojson }};
+                                                                                                ncpi_vowifi_list = convert(ncpi_vowifi_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_vowifi_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_vowifi_list[i] + '">' + ncpi_vowifi_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM System Administrator Guides") {
+                                                                                                var ncpi_sag_string = {{ ncpi_sag|tojson }};
+                                                                                                ncpi_sag_list = convert(ncpi_sag_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_sag_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_sag_list[i] + '">' + ncpi_sag_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " OM Videos") {
+                                                                                                var ncpi_video_string = {{ ncpi_video|tojson }};
+                                                                                                ncpi_video_list = convert(ncpi_video_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_video_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_video_list[i] + '">' + ncpi_video_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+                                                                                else if (val == " Troubleshooting") {
+                                                                                                var ncpi_trouble_string = {{ ncpi_trouble|tojson }};
+                                                                                                ncpi_trouble_list = convert(ncpi_trouble_string);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < ncpi_trouble_list.length; i++) {
+                                                                                                options += '<option value="' + ncpi_trouble_list[i] + '">' + ncpi_trouble_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+
+
+							});
+                                        }
+					if (val == "Other_Documents") {
+                                                var options = '';
+                                                for (var i = 0; i < other_docs_list.length; i++) {
+                                                                        options += '<option value="' + other_docs_list[i] + '">' + other_docs_list[i] + '</option>';
+                                                }
+                                                $('#dctype').html(options);
+                                                $("#dctype").change(function () {
+                                                                                var val = $(this).val();
+                                                                                if (val == " Release Note Documents") {
+                                                                                                var other_docs_rn1 = {{ other_doc_rn|tojson }};
+                                                                                                other_docs_rn_list = convert(other_docs_rn1);
+                                                                                                var options = '';
+                                                                                                for (var i = 0; i < other_docs_rn_list.length; i++) {
+                                                                                                options += '<option value="' + other_docs_rn_list[i] + '">' + other_docs_rn_list[i].replace(';',',') + '</option>';
+                                                                                }
+                                                                                $('#dname').html(options);
+                                                                                }
+																				});
+                                        }
+        });
+});
+</script>
+
+</head>
+<body>
+
+<table border="0" style="background-color: #003258;" width="100%">
+        <tbody><tr><td><img border="0" style="background none;" src="{{url_for('static', filename='ericsson.gif')}}"></td>
+        <td align="right"><strong><font color="white" face="Arial,sans-serif">Document Baseline Page</font></strong></td></tr>
+        </tbody>
+</table>
+
+<ul>
+  <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+  <li><a href="{{ url_for('document_list_main_cpi') }}">CPI Documents</a></li>
+  <li><a href="{{ url_for('document_list_main_calstore') }}">CalStore Documents</a></li>
+  <li><a href="{{ url_for('document_list_main_ncpi') }}">Network Analytics Feature Library</a></li>
+  <li><a href="{{ url_for('document_list_main_other_docs') }}">Other Documents</a></li>
+  <li style="float:right"><a href="https://jira-oss.seli.wh.rnd.internal.ericsson.com">Report</a></li>
+</ul>
+
+    <div class="container">
+      <h1 align="center">Upload Documents</h1>
+      <br>
+      <form class="uploadForm" margin="40px" action="" method="post" align="left" onsubmit="window.location.reload()">
+          Shipment:
+        <select required name="shipment" value="{{request.form.shipment}}">
+                        <option value="none" selected hidden> Select Shipment </option>
+                {% for ship in ship_list %}
+                        <option value={{ship}}>{{ ship }}</option>
+                {% endfor %}
+                </select>
+               </br></br>
+
+                Document Category:
+        <select required id="dccat" name="category" value="{{request.form.category}}">
+                        <option value="none" selected hidden > Select Document Category </option>
+                        <option value="CPI">CPI</option>
+                        <option value="CALSTORE">CALSTORE</option>
+                        <option value="NetAN_Features_Library">NetAN_Features_Library</option>
+						<option value="Other_Documents">Other_Documents</option>
+                </select>
+                </br></br>
+
+          Document Type:
+        <select required id="dctype" name="doctype" value="{{request.form.doctype}}">
+                        <option value="none" selected hidden> Select Document Type </option>
+                </select>
+                </br></br>
+
+        Document Title:
+        <select required id="dname" name="docname" value="{{request.form.docname}}"><br>
+                        <option value="none" selected hidden> Select Document Title </option>
+        </select>
+                </br></br></br>
+
+          Document Number:
+        <input type="text" name="docnum" value="{{request.form.docnum}}"><br>
+                </br></br>
+
+          Document Link:
+        <input type="url" name="link" value="{{request.form.link}}"><br>
+                </br></br>
+          Document Revision:
+        <input type="text" name="revision" value="{{request.form.revision}}"><br>
+                </br></br>
+                  <!-- Document Owner -->
+        <!-- <input type="text" name="owner" value="{{request.form.owner}}"><br> -->
+                <!-- </br></br> -->
+          Document Owner:
+        <input type="text" name="upby" value="{{request.form.upby}}"><br>
+                </br></br>
+          Technical Owner:
+        <input type="text" name="techOwn" value="{{request.form.techOwn}}"><br>
+                </br></br>
+	  Reason For Delivery:
+        <input type="text" name="comments" value="{{request.form.comments}}"><br>
+                </br></br>
+
+        <input class="btn-default" type="submit" align="center" style="width:90px;height:30px" value="Upload">
+        {% if message %}
+        <script>
+        alert("{{ message }}");
+    </script>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+</html>
+

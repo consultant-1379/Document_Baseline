@@ -1,0 +1,3 @@
+Network Analytics Server Deployment Description - Spotfire 12.0
+Network Analytics Server Deployment Description - Spotfire 11.4
+Network Analytics Server Deployment Description - Spotfire 14.0

@@ -1,0 +1,20 @@
+Feature Information Document
+Package Information Document
+Restriction List
+ENIQ Statistics 20.4 Node PRI
+ENIQ Stats Functional Deviation Document
+ENIQ Statistics Generic Acceptance Test for 20.4
+Data Collection Guidelines - Network Analytics Server
+ENIQ Statistics Data Collection Guidelines for 21.2
+ENIQ Statistics Data Collection Guideline for 20.4
+ENIQ Statistics Generic Acceptance Test for 21.4 and 22.1
+ENIQ Statistics Generic Acceptance Test for 21.4
+Eniq Statistics Generic Acceptance Test for 21.2 and 21.3
+Eniq Statistics Generic Acceptance Test for 21.2
+Eniq Statistics Generic Acceptance Test for 20.4 and 21.1
+ENIQ Statistics Generic Acceptance Test for 22.2
+ENIQ Statistics Data Collection Guidelines for 20.4 and 21.1
+ENIQ Statistics Generic Acceptance Test for 23.2
+ENIQ Statistics Generic Acceptance Test for 23.2 and 23.3
+ENIQ Statistics Generic Acceptance Test for 23.4 and 24.1
+ENIQ Statistics Generic Acceptance Test for 24.2

@@ -1,0 +1,234 @@
+Technology Package Description; DC_E_CONTROLLER
+Ericsson Network IQ Area Functionality
+Daylight Saving Reference Guide
+Counter Mapping Information
+Technology Package Description; Information
+Mapping of Database Objects in SO EM and IPT NMS Technology Packages
+Ericsson UTRAN Topology Technology Package; User Guide
+Technology Package Description; DC_E_TCIM
+Technology Package Description; DC_E_CPP
+Technology Package Universe Reference; TP Ericsson CPP PM Standard
+Technology Package Universe Reference; TP Ericsson CPP PM Extended
+Technology Package Description; DC_E_RBS
+Technology Package Universe Reference; TP Ericsson RBS PM
+Technology Package Description; DC_E_RAN
+Technology Package Universe Reference; TP Ericsson RNC PM
+Technology Package Description; DC_E_RBSG2
+Technology Package Description; ENIQ GRAN Topology Technology Package
+Technology Package Description; DC_E_BSS
+Technology Package Universe Reference; TP Ericsson BSS PM
+Technology Package Description; Ericsson Common AXE
+Technology Package Universe Reference; TP Ericsson Common AXE PM
+Technology Package Description; DC_E_BTSG2
+Technology Package Universe Reference; TP Ericsson BTSG2 PM
+Technology Package Description; DC_E_NETOP
+Technology Package Description; DIM_E_CN
+Technology Package Description; DC_E_CCSM
+Technology Package Description; DC_E_GGSN
+Technology Package Universe Reference; TP Ericsson GGSN PM
+Technology Package Description; DC_E_CNAXE
+Technology Package Universe Reference; TP Core Network AXE PM Standard
+Technology Package Universe Reference; TP Core Network AXE PM Extended
+Technology Package Description; DC_E_CUDB
+Technology Package Universe Reference; TP Ericsson CUDB PM
+Technology Package Description; DC_E_SAPC
+Technology Package Universe Reference; TP Ericsson SAPC PM
+Technology Package Description; DC_E_IMS
+Technology Package Universe Reference; TP Ericsson IMS PM
+Technology Package Description; DC_E_IMS_IPW
+Technology Package Universe Reference; TP Ericsson IMS IPWorks PM
+Technology Package Description; Ericsson IMS Messaging
+Technology Package Universe Reference; Ericsson IMS Messaging
+Technology Package Description; Ericsson IMS PTT
+Universe Reference TP Ericsson IMS PTT PM
+Technology Package Description; DC_E_IMSGW_SBG
+Technology Package Universe Reference; TP Ericsson IMSGW SBG PM
+Technology Package Description; DC_E_IMSGW_MGW
+Ericsson IS-MGW PM Tech Pack; Technology Package Universe Reference
+Technology Package Description; DC_E_MGW
+Technology Package Universe Reference; TP Ericsson MGW PM Standard
+Technology Package Universe Reference; TP Ericsson MGW PM Extended
+Technology Package Description; MRS UTIL
+Technology Package Universe Reference; TP MRS UTIL PM
+Technology Package Description; DC_E_MTAS
+Technology Package Universe Reference; TP Ericsson MTAS PM
+Technology Package Description; DC_E_SASN
+Technology Package Universe Reference; TP Ericsson SASN PM
+TP Description Ericsson SASN SARA
+Technology Package Universe Reference; Ericsson SASN SARA
+Technology Package Description; Ericsson SGSN
+Technology Package Universe Reference; Ericsson SGSN PM
+Technology Package Description; DC_E_SGSNMME
+Technology Package Universe Reference; TP Ericsson SGSN MME PM
+Technology Package Description; DC_E_EPDG
+Technology Package Universe Reference; TP Ericsson EPDG PM
+Technology Package Description; Ericsson IMSGW MGC
+Technology Package Universe Reference; TP Ericsson IMSGW MGC PM
+Technology Package Description; DC_E_CSCF
+Technology Package Universe Reference; TP Ericsson CSCF PM
+Technology Package Description; Broadband Service Controller
+Technology Package Universe Reference; TP Broadband Service Controller PM
+Technology Package Description; DC_E_DSC
+Technology Package Universe Reference; TP Ericsson DSC PM
+Technology Package Description; Ericsson SDNCP
+Technology Package Universe Reference; TP Ericsson SDNCP PM
+Technology Package Description; DC_E_UPG
+Technology Package Universe Reference; TP Ericsson UPG Techpack PM
+Technology Package Description; DC_E_WMG
+Technology Package Universe Reference; TP Ericsson WMG PM
+Technology Package Description; DC_E_HSS
+Technology Package Universe Reference; TP Ericsson HSS PM
+Technology Package Description; DC_E_WCG
+Technology Package Universe Reference; TP Ericsson WCG PM
+Technology Package Description; DC_E_MRS
+Technology Package Universe Reference; TP Ericsson MRS PM
+Technology Package Description; DC_E_vEME
+Technology Package Universe Reference; TP Ericsson vEME PM
+Technology Package Description; CISCO Aggregation Services Router
+Technology Package Universe Reference; TP CISCO Aggregation Services Router PM
+Technology Package Description; DC_E_CMN_STS_PC
+Technology Package Universe Reference; TP Ericsson Common STS PC PM
+Technology Package Description; DC_E_AFG
+Technology Package Universe Reference; TP Ericsson AFG PM
+Technology Package Description; DC_E_BSP
+Technology Package Universe Reference; TP Ericsson BSP PM
+Technology Package Description; DC_E_PCC
+Technology Package Description; DC_E_CCDM
+Technology Package Description; DC_E_CCRC
+Technology Package Description; DC_E_NRFAGENT
+Technology Package Description; DC_E_SCEF
+Technology Package Description; Ericsson EBSG
+Technology Package Universe Reference; Ericsson EBSG
+Technology Package Description; Ericsson EBSS
+Technology Package Universe Reference; Ericsson EBSS
+Technology Package Description; Ericsson EBSW
+Technology Package Universe Reference; Ericsson EBSW
+TP Description TSS Topology Technology Package
+Technology Package Description; DC_E_TSSAXE
+Technology Package Universe Reference; TP Ericsson TSS AXE PM
+Technology Package Description; Ericsson TSS TGC
+Ericsson IS-TGC PM Tech Pack; Technology Package Universe Reference
+Technology Package Description; Ericsson TSS AXD
+Technology Package Universe Reference; TP Ericsson TSS AXD PM
+Technology Package Description; Ericsson Common AXE
+Technology Package Universe Reference; TP Ericsson SDNCP PM
+Technology Package Description; DC_E_UPG
+Technology Package Universe Reference; TP Ericsson UPG Techpack PM
+Technology Package Description; DC_E_WMG
+Technology Package Universe Reference; TP Ericsson WMG PM
+Technology Package Description; DC_E_HSS
+Technology Package Universe Reference; TP Ericsson HSS PM
+Technology Package Description; DC_E_WCG
+Technology Package Universe Reference; TP Ericsson WCG PM
+Technology Package Description; DC_E_MRS
+Technology Package Universe Reference; TP Ericsson MRS PM
+Technology Package Description; DC_E_vEME
+Technology Package Universe Reference; TP Ericsson vEME PM
+Technology Package Description; CISCO Aggregation Services Router
+Technology Package Universe Reference; TP CISCO Aggregation Services Router PM
+Technology Package Description; DC_E_CMN_STS_PC
+Technology Package Universe Reference; TP Ericsson Common STS PC PM
+Technology Package Description; DC_E_AFG
+Technology Package Universe Reference; TP Ericsson AFG PM
+Technology Package Description; DC_E_BSP
+Technology Package Universe Reference; TP Ericsson BSP PM
+Technology Package Description; DC_E_PCC
+Technology Package Description; DC_E_CCDM
+Technology Package Description; DC_E_CCRC
+Technology Package Description; DC_E_NRFAGENT
+Technology Package Description; DC_E_SCEF
+Technology Package Description; Ericsson EBSG
+Technology Package Universe Reference; Ericsson EBSG
+Technology Package Description; Ericsson EBSS
+Technology Package Universe Reference; Ericsson EBSS
+Technology Package Description; Ericsson EBSW
+Technology Package Universe Reference; Ericsson EBSW
+TP Description TSS Topology Technology Package
+Technology Package Description; DC_E_TSSAXE
+Technology Package Universe Reference; TP Ericsson TSS AXE PM
+Technology Package Description; Ericsson TSS TGC
+Ericsson IS-TGC PM Tech Pack; Technology Package Universe Reference
+Technology Package Description; Ericsson TSS AXD
+Technology Package Universe Reference; TP Ericsson TSS AXD PM
+Technology Package Description; Ericsson Common AXE
+Technology Package Universe Reference; TP Ericsson Common AXE PM
+Technology Package Description; DIM_E_CN
+Technology Package Description; DC_E_ERBS
+Technology Package Universe Reference; TP Ericsson ERBS PM
+Technology Package Description; DC_E_ERBSG2
+Technology Package Description; DC_E_LLE
+Technology Package Universe Reference; TP Ericsson LTE RAN Load Expert PM
+Technology Package Description; Ericsson VoWi-Fi
+Technology Package Description; Ericsson LTE Optimization
+Technology Package Description; DC_E_VPP
+Technology Package Universe Reference; TP Ericsson vPP PM
+Technology Package Description; DC_E_NR
+Technology Package Description; DC_E_FFAX
+Technology Package Universe Reference; TP Ericsson FFAX PM
+Technology Package Description; DC_E_FFAXW
+Technology Package Universe Reference; TP ERICSSON FFAXW PM
+Technology Package Description; SNMP MIB II
+Technology Package Universe Reference; Ericsson SNMP MIB II
+Technology Package Description; Ericsson IPRAN
+Technology Package Universe Reference; TP Ericsson IPRAN PM
+Technology Package Description; Ericsson STN
+Technology Package Universe Reference; TP Ericsson STN PM
+Technology Package Description; DC_E_TCU
+Technology Package Universe Reference; TP Ericsson TCU PM
+Technology Package Description; Ericsson Energy Performance
+Technology Package Description; Ericsson UTRAN Base
+Technology Package Description; Ericsson GRAN Base
+Technology Package Description; DC_E_REDB
+Technology Package Universe Reference; Ericsson Redback
+Technology Package Description; Ericsson Redback CPG
+Technology Package Universe Reference Ericsson CPG PM Tech Pack
+Technology Package Description; DC_E_BULK_CM
+Technology Package Universe Reference; TP Ericsson BULK CM Transport
+Technology Package Universe Reference; TP Ericsson BULK CM RNC Radio
+Technology Package Universe Reference; TP Ericsson BULK CM RBS Radio
+Technology Package Universe Reference; TP Ericsson BULK CM O_M
+Technology Package Universe Reference; TP Ericsson BULK CM Equipment
+Technology Package Universe Reference; TP Ericsson BULK CM LTE Radio
+Technology Package Universe Reference; TP Ericsson BULK CM Transport Ext
+Technology Package Universe Reference; TP Ericsson BULK CM LTE Radio Ext
+Technology Package Universe Reference; TP Ericsson BULK CM O_M Ext
+Technology Package Universe Reference; TP Ericsson BULK CM GSM Radio
+Technology Package Universe Reference; TP Ericsson BULK CM Equipment Ext
+Technology Package Universe Reference; TP Ericsson BULK CM NR
+Technology Package Universe Reference; TP Ericsson BULK CM CORE
+Technology Package Description; IPTNMS Topology TechPack
+Technology Package Description; DC_E_SOEM_MBH
+Technology Package Universe Reference; TP Ericsson SOEM MBH PM
+Technology Package Description; DC_E_IPTRANSPORT
+Technology Package Universe Reference; TP Ericsson IPTRANSPORT PM
+Technology Package Description; DIM_E_IPTRANSPORT
+Mapping of Database Objects in SO EM and IPT NMS Technology Packages
+Technology Package Description; DC_J_JUNOS
+Technology Package Universe Reference; TP Juniper PM
+Technology Package Description; DC_E_ESC
+Technology Package Universe Reference; TP Ericsson ESC PM
+Technology Package Description; DC_E_PRBS_RBS
+Universe Reference TP Ericsson PRBS RBS PM
+Technology Package Description; DC_E_PRBS_CPP
+Technology Package Universe Reference; TP Ericsson PRBS CPP PM
+Technology Package Universe Reference; TP Ericsson PRBS ERBS PM
+Technology Package Description; DC_E_PRBS_ERBS
+Technology Package Description; Ericsson IPPROBE
+Technology Package Universe Reference; TP Ericsson IPPROBE PM
+ENIQ; CCES Technology Package Description
+Technology Package Description; DC_E_SC
+Technology Package Description; DC_E_NSDS
+Technology Package Description; DC_E_PCG
+Technology Package Description; DC_E_CCPC
+TP Description Ericsson LTE Topology
+TP Description Ericsson 5GC for SMSF
+Universe Reference TP Ericsson BULK CM O_M Ext1
+Technology Package Description; DIM_E_UTRAN
+Technology Package Description; CV_INFORMATION_STORE
+Technology Package Description DIM_E_SHARED_CNF
+Technology Package Description  Ericsson cSBG
+Technology Package Description Ericsson cBGF
+Technology Package Description Ericsson ADC
+Universe Reference TP Ericsson BULK CM NR Ext
+Technology Package Description Ericsson cRAN
+Technology Package Description Ericsson cNELS

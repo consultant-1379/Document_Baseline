@@ -1,0 +1,2 @@
+Management Workstation Initial Installation and Upgrade for RHEL
+Management Workstation Server System Administrator Guide for RHEL

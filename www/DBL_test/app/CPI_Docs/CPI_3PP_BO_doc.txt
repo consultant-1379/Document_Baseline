@@ -1,0 +1,23 @@
+Business Intelligence Launch Pad User Guide
+Business Intelligence Platform Administrator Guide
+Business Intelligence Platform Installation Guide for Windows
+Business Intelligence Platform Upgrade Guide
+Business Intelligence Platform User Guide
+Business Intelligence Suite Error Messages Explained
+Information Design Tool User Guide
+SAP BusinessObjects Business Intelligence 4 Sizing Guide
+SAP BusinessObjects Web Intelligence Rich Client Users Guide
+Universe Design Tool User Guide
+BI Administration Console Guide
+Creating and Building Sets With the Information Design Tool
+Data Access Guide
+Fiorified Business Intelligence Launch Pad User Guide
+Fixed Issues
+Multitenancy Guide
+Recommendations for Conversion Using the Report Conversion Tool
+SAP Business Intelligence Suite Release Restrictions
+SAP BusinessObjects BI Platform 4.2 Supported Platforms (PAM)
+SAP BusinessObjects Business Intelligence Suite What's New
+SAP BusinessObjects Web Intelligence Interactive Viewer User Guide
+Support Package Update Guide
+Using functions; formulas and calculations in Web Intelligence

@@ -1,0 +1,44 @@
+ENIQ; RNC Business Intelligence Reports
+ENIQ; M-MGw Business Intelligence Reports
+ENIQ; IS-MGW Business Intelligence Reports
+Ericsson TSS AXE KPI Report; KPI Description
+ENIQ IS-MGC Business Intelligence Reports
+ENIQ; MSC Business Intelligence Reports
+ENIQ; BSC Business Intelligence Reports
+ENIQ; BSC Business Intelligence Reports
+ENIQ; SGSN Business Intelligence Reports
+ENIQ; SGSN Business Intelligence Reports
+ENIQ; SGSN Business Intelligence Reports
+ENIQ; SGSN Business Intelligence Reports
+ENIQ; SASN SARA Business Intelligence Reports
+ENIQ; TSS Business Intelligence Reports
+ENIQ; UDC Business Intelligence Reports
+ENIQ; GGSN Business Intelligence Reports
+ENIQ; RBS Channel Element License Utilization Report
+ENIQ; ERBS Business Intelligence Reports
+ENIQ; MSC Capacity Licensing Business Intelligence Reports
+ENIQ; ERBS Transport Network Business Intelligence Reports
+ENIQ; SGSN MME Business Intelligence Reports
+ENIQ; CPG Business Intelligence Reports
+ENIQ; MSC-S BC Load Statistics Business Intelligence Reports
+ENIQ; SO EM MBH Business Intelligence Reports
+ENIQ; CSCF Business Intelligence Reports
+ENIQ; MTAS Business Intelligence Reports
+ENIQ; PGM Business Intelligence Reports
+ENIQ; HSS Business Intelligence Reports
+ENIQ; MRFC Business Intelligence Reports
+ENIQ; IPWorks Business Intelligence Reports
+ENIQ; SBG Business Intelligence Reports
+ENIQ; DSC Business Intelligence Reports
+ENIQ; IP RAN Business Intelligence Reports
+ENIQ; LTE RAN Load Expert Business Intelligence Reports
+IS-TGC KPI Report Description
+Ericsson AXD 301 KPI Report Description
+ENIQ; WCG Business Intelligence Reports
+ENIQ; WMG Business Intelligence Reports
+ENIQ; IPPROBE Business Intelligence Reports
+ENIQ; MRSv Business Intelligence Reports
+ENIQ; SAPC Business Intelligence Reports
+ENIQ; EIR-FE Business Intelligence Reports
+ENIQ; vEME Business Intelligence Reports
+ENIQ CUDB Business Intelligence Reports

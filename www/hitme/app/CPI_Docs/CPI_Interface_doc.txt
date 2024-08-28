@@ -1,0 +1,12 @@
+Summary of External Interfaces for ENIQ Statistics-22.2
+Summary of External Interfaces for ENIQ Statistics 21.4 and 22.1
+Summary of External Interfaces for ENIQ Statistics-21.4
+Summary of External Interfaces for ENIQ Statistics-21.2 and 21.3
+Summary of External Interfaces for ENIQ Statistics-21.2
+Summary of External Interfaces for ENIQ Statistics-20.4 and 21.1
+Summary of External Interfaces for ENIQ Statistics-23.1
+Summary of External Interfaces for Ericsson Network IQ for 20.4
+Summary of External Interfaces for ENIQ Statistics-23.2
+Summary of External Interfaces for ENIQ Statistics-23.4 and 24.1
+Summary of External Interfaces for ENIQ Statistics
+Summary of External Interfaces for ENIQ Statistics for 24.2

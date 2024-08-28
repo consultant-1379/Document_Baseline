@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <title> Network Analytics Feature (ENIQ-S) </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+<style type="text/css">
+form {
+ margin: 8px;
+ border-width: 100%
+  padding-top: 50px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+.btn {
+  background-color: #032457;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: grey;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  width: 150%;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #032457;
+}
+</style>
+
+<style>
+
+.tbl {
+  border-collapse: collapse;
+  table-layout: auto;
+}
+.tbl th{
+  text-align: left;
+  padding: 10px;
+  background-color: #DFE0DF;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  font-family: Arial,sans-serif;
+  color: black;
+}
+.tbl td{
+  text-align: left;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.tbl tr:nth-child(even){background-color: #f2f2f2}
+.tbl tr:hover {background-color: #D6DDFC;}
+</style>
+
+<table border="0" style="background-color: #003258;" width="150%">
+	<tbody><tr><td width="57%"><img border="0" style="background none;" src="{{url_for('static', filename='ericsson.gif')}}"></td>
+	<td><strong><font color="white" face="Arial,sans-serif">Document Baseline Page</font></strong></td></tr>
+	</tbody>
+</table>
+<ul>
+  <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+  <li><a href="{{ url_for('upload') }}">Upload</a></li>
+  <li><a href="{{ url_for('document_list_main_cpi') }}">CPI Documents</a></li>
+  <li><a href="{{ url_for('document_list_main_calstore') }}">CALSTORE Documents</a></li>
+  <li><a href="{{ url_for('document_list_main_other_docs') }}">Other Documents</a></li>
+  <li style="float:left"><a href="https://jira-oss.seli.wh.rnd.internal.ericsson.com">Report</a></li>
+</ul>
+
+    
+      <h1 align="center"> Network Analytics Feature (ENIQ-S) Library </h1>
+      <br>
+	  <form action="" method="post" align="middle" width="100%">
+		</br></br>
+		Sprint
+        <select name="ship" value="{{request.form.ship}}">
+			<option value="none" selected hidden> Select Sprint </option> 
+		{% for s in ship_list %}
+			<option value={{s}}>{{ s }}</option>
+		{% endfor %}
+		</select>
+                </br></br>
+                Search Type:
+        <select name="search_type" value="{{request.form.search_type}}">
+                        <option value="full">Full</option>
+                        <option value="delta">Delta</option>
+                </select>
+		</br></br>
+		<input class="btn-default" type="submit" style="width:90px;height:30px" value="Search >>">
+		</br></br>
+		{% if shipm != "None" and shipm != "none" %}
+		<h3> NETAN DOCUMENTS FOR ENIQ STATS {{ shipm }}</h3>
+		<div class="container">
+                <table class="tbl" border="3" style="width:50" cellpadding="20" align="center">
+                <th>Sprint</th>
+                <th>Document type</th>
+                <th>Document Title</th>
+                <th>Document Number</th>
+                <th>Link</th>
+                <th>Revision</th>
+                <th>Document Owner</th>
+                <th>Technical Owner</th>
+		<th>Date</th>
+                <th>Comments</th>
+
+		{% for doc_t in dd %}
+				{% for dtype in doc_type_list_ncpi %}
+					{% if dtype in doc_t %}
+						{% for doc in doc_details_list %}
+							{% set dets = doc.split("::::") %}
+								{% if dets[1] in dtype %}
+								<tr>
+									{% for det in dets %}
+										{% if "https" in det %}
+											<td><a href="{{ det }}">Link</a></td>
+										{% else %}
+											<td>{{ det }}</td>
+										{% endif %}
+									{% endfor %}
+								</tr>
+								{% endif %}
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		{% endif %}
+              </table>
+              </div>
+              </br></br>
+      </form>
+  </body>
+</html>
